@@ -1747,35 +1747,54 @@ body {
     margin-bottom: 0.8rem;
   }
 
-  .fiscal-info,
-  .empresa-soporte {
-    padding: 1.5rem;
+  .fiscal-info {
+    padding: 1.8rem 1.2rem;
   }
 
-  .fiscal-info h3,
-  .empresa-soporte h3 {
-    font-size: 1.3rem;
+  .fiscal-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .fiscal-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .fiscal-item {
-    padding: 1.3rem;
+    padding: 1.5rem;
+    border-radius: 10px;
   }
 
   .fiscal-item strong {
-    font-size: 1rem;
+    font-size: 1.05rem;
     margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    display: block;
   }
 
   .fiscal-item p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .fiscal-item a {
+    font-size: 0.98rem;
   }
 
   .fiscal-item .iban-block-full {
-    font-size: 0.88rem;
-    letter-spacing: 0.6px;
-    padding: 0.6rem 1.2rem;
-    margin: 0.4rem auto 0.2rem auto;
+    font-size: 0.9rem;
+    letter-spacing: 0.65px;
+    padding: 0.7rem 1.3rem;
+    margin: 0.5rem auto 0.2rem auto;
+    border-radius: 8px;
+  }
+
+  .iban-details-full {
+    font-size: 0.93rem;
+    margin-top: 0.4rem;
   }
 
   .about-info {
