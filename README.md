@@ -65,6 +65,7 @@ Para actualizar el contenido:
 ## 📞 Información del Club
 
 **Real America FC**
+
 - Categoría: Segunda Autonómica de Castilla-La Mancha
 - Ubicación: Ciudad Real, España
 - Email: info@realamericafc.es
@@ -73,6 +74,7 @@ Para actualizar el contenido:
 ## 📧 Formulario de Contacto
 
 El formulario de contacto valida:
+
 - Nombre (requerido)
 - Email (requerido y validado)
 - Asunto (requerido)

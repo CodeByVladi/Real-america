@@ -1,6 +1,6 @@
 .iban-block-full {
   width: 100%;
-  font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  font-family: "Fira Mono", "Consolas", "Courier New", monospace;
   /* escala responsiva: reduce cuando el contenedor es estrecho para evitar recortes */
   font-size: clamp(0.82rem, 0.9vw + 0.45rem, 1.05rem);
   font-weight: 700;
@@ -12,7 +12,7 @@
   margin: 0 auto 0.5rem auto;
   letter-spacing: 0.25px;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(212,175,55,0.08);
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.08);
   white-space: nowrap;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -1276,37 +1276,56 @@ body {
 }
 .collaborators-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 .collaborator {
   background: #fff;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 12px;
+  border: 2px solid rgba(212, 175, 55, 0.25);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  min-height: 100px;
-  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.06);
+  padding: 2.5rem 1.5rem;
+  min-height: 260px;
+  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #fffbe9 60%, #f5f1e8 100%);
+}
+.collaborator:hover {
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+  border-color: var(--secondary-color);
+  transform: translateY(-4px);
 }
 .collaborator-logo {
-  width: 120px;
-  height: 60px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #fffbe9, #f5f1e8);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-color);
-  font-weight: 600;
+  max-width: 95%;
+  width: 100%;
+  height: auto;
+  max-height: 210px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(139, 69, 19, 0.1));
+}
+
+/* Mantener el logo de Punto Zuliano más pequeño */
+.collaborator-logo[src*="Zuliano"] {
+  width: 100%;
+  max-width: 420px;
+  max-height: 130px;
+}
+
+.collaborator:hover .collaborator-logo {
+  transform: scale(1.03);
 }
 .collaborators-note {
   text-align: center;
   color: var(--white);
-  background: linear-gradient(135deg, rgba(26, 20, 16, 0.85), rgba(26, 20, 16, 0.7));
+  background: linear-gradient(
+    135deg,
+    rgba(26, 20, 16, 0.85),
+    rgba(26, 20, 16, 0.7)
+  );
   padding: 1rem 1.2rem;
   border-radius: 12px;
   border-bottom: 3px solid var(--secondary-color);
@@ -1846,6 +1865,16 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .collaborators-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .collaborator {
+    min-height: 160px;
+    padding: 1.8rem 1.3rem;
+  }
+
   .plan-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.3rem;
@@ -2133,6 +2162,25 @@ body {
 
   .fiscal-item strong {
     font-size: 0.95rem;
+  }
+
+  .collaborators-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .collaborator {
+    min-height: 140px;
+    padding: 1.5rem 1rem;
+  }
+
+  .collaborator-logo {
+    max-height: 110px;
+  }
+
+  .collaborators-note {
+    font-size: 0.9rem;
+    padding: 1rem;
   }
 
   .empresa-texto {
