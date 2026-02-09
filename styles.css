@@ -1,3 +1,139 @@
+/* ===== SECCIÓN PATROCINADORES ===== */
+.patrocinadores {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f5f1e8 0%, #fafaf8 100%);
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.patrocinadores h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+.patrocinadores-beneficios {
+  margin-bottom: 2rem;
+}
+.patrocinadores-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.patrocinadores-list li {
+  background: #fff;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-size: 1.05rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.06);
+}
+.patrocinadores-list i {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
+.patrocinadores-cta {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.patrocinadores-cta h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.patrocinadores-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.patro-icon {
+  background: #fffbe9;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+.patro-icon i {
+  color: var(--secondary-color);
+  font-size: 2rem;
+}
+.patrocinadores-contacto {
+  text-align: center;
+  margin-top: 1rem;
+}
+.patro-contacto-numero {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.patro-contacto-numero i {
+  color: var(--secondary-color);
+  margin-right: 0.5rem;
+}
+.patro-contacto-nombre {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+.patro-slogan {
+  color: var(--accent-color);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* ===== SECCIÓN JUSTIFICACIÓN DE FONDOS ===== */
+.justificacion-fondos {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #fafaf8 0%, #fffbe9 100%);
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.justificacion-fondos h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+.fondos-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.fondos-list li {
+  background: #fff;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-size: 1.05rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.06);
+}
+.fondos-list i {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
 .iban-block-full {
   width: 100%;
   font-family: "Fira Mono", "Consolas", "Courier New", monospace;
@@ -1306,7 +1442,7 @@ body {
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  filter: drop-shadow(0 2px 8px rgba(139,69,19,0.10));
+  filter: drop-shadow(0 2px 8px rgba(139, 69, 19, 0.1));
 }
 
 /* Todos los logos ahora tienen el mismo tamaño */
