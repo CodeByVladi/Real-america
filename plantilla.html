@@ -23,82 +23,160 @@
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html">Volver a la web principal</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+        const navLinks = document.querySelectorAll(".nav-menu a");
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Datos y modal para la nueva plantilla
+        const playersData = {
+          "francisco_gomez": {
+            nombre: "Francisco Andres Gomez Candallo",
+            foto: "imagenes/jugadores/francisco_gomez.jpg",
+            descripcion: `
+              <b>Fecha de nacimiento:</b> 28/06/2007<br>
+              <b>Nacionalidad:</b> Venezolano<br>
+              <b>Peso:</b> 65kg<br>
+              <b>Altura:</b> 1,72m<br>
+              <b>Pie dominante:</b> Diestro<br>
+              Extremo<br><br>
+              <b>Descripción del jugador:</b><br>
+              Francisco Gomez es un jugador físico y regateador, veloz y ágil al momento de conducir con la pelota, buen control aéreo y con una buena visión de juego.<br><br>
+              <b>Historial Deportivo:</b><br>
+              Narax sport 2021-2024<br>
+              Monumentales 2024-2025
+            `
+          }
+        };
+        document.querySelectorAll(".player-name.clickable").forEach((el) => {
+          el.addEventListener("click", function () {
+            const key = this.dataset.player;
+            const data = playersData[key];
+            if (data) {
+              const playerRow = this.closest("tr");
+              const detailsRow = playerRow ? playerRow.nextElementSibling : null;
+              if (!detailsRow || !detailsRow.classList.contains("player-details-row")) return;
+              const detailsContainer = detailsRow.querySelector(".player-details");
+              if (!detailsContainer) return;
+
+              const isActive = detailsRow.classList.contains("active");
+              document.querySelectorAll(".player-details-row.active").forEach((row) => {
+                row.classList.remove("active");
+              });
+
+              if (isActive) return;
+
+              detailsContainer.innerHTML = `
+                <div class="player-details-media">
+                  <img src="${data.foto}" alt="${data.nombre}" onerror=\"this.src='imagenes/default_player.png'\" />
+                </div>
+                <div class="player-details-info">
+                  <h3>${data.nombre}</h3>
+                  <div class="player-extra">${data.descripcion || ""}</div>
+                </div>
+              `;
+              detailsRow.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
 
     <section class="about">
       <div class="container">
         <h2>Plantilla 2026</h2>
         <div class="about-content">
           <div class="about-text">
-            <h3>Equipo Fútbol 11 (Segunda Autonómica)</h3>
-            <table class="plantilla-table">
+            <h3 class="section-title">Jugadores</h3>
+            <table class="player-table staff-table">
               <thead>
                 <tr>
-                  <th>Jugador</th>
-                  <th>Estadísticas</th>
+                  <th>Nombre</th>
+                  <th>Nacionalidad</th>
+                  <th>Edad</th>
+                  <th>Posición</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>ALFARO PONCE, DIEGO ALEXANDER</td><td>No disponible</td></tr>
-                <tr><td>ALFARO PONCE, MOISES GUSTAVO</td><td>No disponible</td></tr>
-                <tr><td>ANGULO SILVA, KELVIN OMAR</td><td>No disponible</td></tr>
-                <tr><td>ARAQUE PEREZ, DALTON EZEQUIEL</td><td>No disponible</td></tr>
-                <tr><td>BAH , ELHADJ AMADOU</td><td>No disponible</td></tr>
-                <tr><td>BARRERA GOMEZ, EDSON NICOLAS</td><td>No disponible</td></tr>
-                <tr><td>CASTAÑO LONDOÑO, ALEJANDRO</td><td>No disponible</td></tr>
-                <tr><td>CHAVEZ BONALDE, JESUS</td><td>No disponible</td></tr>
-                <tr><td>GAMBOA ALVARADO, JOSDAR MANUEL</td><td>No disponible</td></tr>
-                <tr><td>GAVIDIA ANGULO, LEONARDO</td><td>No disponible</td></tr>
-                <tr><td>GONZALEZ BURIM, VLADIMIR ALEXANDER</td><td>No disponible</td></tr>
-                <tr><td>HASAN , BADRI</td><td>No disponible</td></tr>
-                <tr><td>MARTINEZ ESQUIVEL, ANGEL LUCIANO</td><td>No disponible</td></tr>
-                <tr><td>MELENDEZ PULIDO, BERNARDO ANTONIO</td><td>No disponible</td></tr>
-                <tr><td>ORJUELA QUINTERO, HERNAN</td><td>No disponible</td></tr>
-                <tr><td>PAREDES PEREZ, KEVIN JESUS</td><td>No disponible</td></tr>
-                <tr><td>PAREDES PEREZ, MAYK ANDERSON</td><td>No disponible</td></tr>
-                <tr><td>VELAZQUEZ FACUNDO, EDGAR DANIEL</td><td>No disponible</td></tr>
-                <tr><td>FUENTES LEAL, HECTOR</td><td>No disponible</td></tr>
-                <tr><td>PORRAS HIBIRMAS, JUAN</td><td>No disponible</td></tr>
+                <tr>
+                  <td>
+                    <span class="player-name clickable name-full" data-player="francisco_gomez">Francisco Andres Gomez Candallo</span>
+                    <span class="player-name clickable name-short" data-player="francisco_gomez">Francisco Gomez</span>
+                  </td>
+                  <td>
+                    <span class="player-country">
+                      <img src="https://flagcdn.com/24x18/ve.png" alt="Venezuela" class="flag-icon" /> Venezuela
+                    </span>
+                  </td>
+                  <td>18</td>
+                  <td>
+                    <span class="position-full">Extremo</span>
+                    <span class="position-short">EXT</span>
+                  </td>
+                </tr>
+                <tr class="player-details-row" data-player="francisco_gomez">
+                  <td colspan="4">
+                    <div class="player-details"></div>
+                  </td>
+                </tr>
               </tbody>
             </table>
-            <h3 style="margin-top:2rem;">Equipo Fútbol 7 (Aficionado F7 Guadalajara)</h3>
-            <table class="plantilla-table">
+
+            <h3 class="section-title" style="margin-top:2rem;">Director Técnico</h3>
+            <table class="player-table staff-table">
               <thead>
                 <tr>
-                  <th>Jugador</th>
-                  <th>Estadísticas</th>
+                  <th>Nombre</th>
+                  <th>Rol</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>ABAKAR , ADAKHIR ABAKAR</td><td>No disponible</td></tr>
-                <tr><td>ALFARO PONCE, DIEGO ALEXANDER</td><td>Sanciones</td></tr>
-                <tr><td>ALFARO PONCE, MOISES GUSTAVO</td><td>Sanciones</td></tr>
-                <tr><td>ANGULO SILVA, KELVIN OMAR</td><td>No disponible</td></tr>
-                <tr><td>ARAQUE PEREZ, DALTON EZEQUIEL</td><td>No disponible</td></tr>
-                <tr><td>GAVIDIA ANGULO, LEONARDO</td><td>No disponible</td></tr>
-                <tr><td>KONARE , MOUSSA</td><td>Sanciones</td></tr>
-                <tr><td>MARTINEZ ESQUIVEL, ANGEL LUCIANO</td><td>No disponible</td></tr>
-                <tr><td>NDIAYE , OUSMANE</td><td>No disponible</td></tr>
-                <tr><td>ORJUELA QUINTERO, HERNAN</td><td>No disponible</td></tr>
-                <tr><td>PAREDES PEREZ, MAIK</td><td>No disponible</td></tr>
-                <tr><td>TOCA , ALEXANDRU</td><td>Sanciones</td></tr>
-                <tr><td>WATARA , OSAMUDIAMEN LOVIRIE</td><td>No disponible</td></tr>
+                <tr>
+                  <td>Osmar Paredes Rodríguez</td>
+                  <td>Director Técnico</td>
+                </tr>
               </tbody>
             </table>
-            <h3 style="margin-top:2rem;">Director Técnico</h3>
-            <ul class="about-list">
-              <li><i class="fas fa-chalkboard-teacher"></i> Osmar Paredes Rodríguez</li>
-            </ul>
-            <h3 style="margin-top:2rem;">Staff</h3>
-            <ul class="about-list">
-              <li><i class="fas fa-user-tie"></i> Preparador físico: No disponible</li>
-              <li><i class="fas fa-user-nurse"></i> Médico: No disponible</li>
-            </ul>
+
+            <h3 class="section-title" style="margin-top:2rem;">Staff</h3>
+            <table class="player-table staff-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Rol</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>No disponible</td>
+                  <td>Preparador físico</td>
+                </tr>
+                <tr>
+                  <td>No disponible</td>
+                  <td>Médico</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="about-image">
-            <img src="imagenes/realamericaescudo.jpg" alt="Escudo Asociación Real America" class="about-shield" />
-          </div>
+          <!-- Imagen del equipo eliminada -->
         </div>
       </div>
     </section>
